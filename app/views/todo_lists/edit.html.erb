@@ -1,6 +1,21 @@
-<h1>Editing Todo List</h1>
 
-<%= render 'form', todo_list: @todo_list %>
 
-<%= link_to 'Show', @todo_list %> |
-<%= link_to 'Back', todo_lists_path %>
+
+ <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+       <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title">Flight Entry</h3>
+             <%= link_to 'Back', todo_lists_path, class: "btn btn-danger" %>
+         </div>
+          <div class="panel-body">
+            <%= render 'form', todo_list: @todo_list %>
+          </div>
+
+          <div class="panel-footer">
+            <%= link_to 'Back', todo_lists_path, class: "btn btn-danger" %>
+
+          </div>
+       </div>
+    </div>
+ </div>

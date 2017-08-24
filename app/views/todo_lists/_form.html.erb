@@ -1,17 +1,90 @@
 <%= simple_form_for(@todo_list) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
+  <div class="row">
+      <div class="col-xs-12">
+         <h3 class="page-header">Flight Entry<small class="pull-right">Date: <span class="invoice_header_date"></span></small></h3>
+      </div><!-- /.col -->
   </div>
+
+
+  <div class="row">
+
+        <div class="col-xs-3 invoice-col">
+        <%= f.label :date%>
+            <%= f.input_field :date, class: "form-control datepicker", as: :string, id: "invoice_date" %>
+        </div>
+
+        <div class="col-xs-3 invoice-col">
+         <%= f.label :time%>
+            <%= f.input_field :time, class: "form-control" %>
+        </div>
+
+         <div class="col-xs-3 invoice-col">
+         <%= f.label :location%>
+             <%= f.input_field :name, class: "form-control" %>
+         </div>
+
+         <div class="col-xs-3 invoice-col">
+          <%= f.label :purpose%>
+
+               <%= f.select :purpose, TodoList::Purpose_List, {},  class: "form-control"%>
+         </div>
+
+
+        <div class="col-xs-3 invoice-col">
+        <%= f.label :weather%>
+            <%= f.input_field :weather, class: "form-control" %>
+        </div>
+
+        <div class="col-xs-3 invoice-col">
+         <%= f.label :mission%>
+            <%= f.input_field :mission, class: "form-control" %>
+        </div>
+
+         <div class="col-xs-3 invoice-col">
+         <%= f.label :Operator%>
+             <%= f.input_field :operator, class: "form-control" %>
+         </div>
+
+         <div class="col-xs-3 invoice-col">
+          <%= f.label :Observer%>
+              <%= f.input_field :observer, class: "form-control" %>
+         </div>
+
+         <div class="col-xs-3 invoice-col">
+          <%= f.label :Total_Drones_with_Good_Status %>
+            <%= f.input_field :dronegood, class: "form-control" %>
+         </div>
+
+         <div class="col-xs-3 invoice-col">
+          <%= f.label :Total_Number_Of_Drones %>
+            <%= f.input_field :dronetotal, class: "form-control" %>
+         </div>
+
+  </div>
+
+
+
+        <div class="col-xs-12 invoice-col">
+
+         <b class="keywords; text-transform: uppercase; font-size: 13px; letter-spacing: 10px; border-bottom: 1px solid black; padding: 0 0 8px 0; margin: 0 0 8px 0">
+         <div style="text-align: center; margin: 20px 0 0 0;">
+         Arrowonics Flight Notes</div></b>
+           <address>
+              <%= f.input_field :gnotes, class: "form-control" %>
+           </address>
+        </div>
+
 
   <table class='table'>
     <thead>
       <tr>
+        <th>Drone ID</th>
+        <th>Designation</th>
+        <th>Status</th>
+        <th>Notes</th>
         <th></th>
-        <th>Task Name</th>
-        <th>Completed</th>
-        <th>Due</th>
       </tr>
     </thead>
     <tbody class='fields'>
@@ -22,7 +95,7 @@
   </table>
 
   <div class="form-actions">
-    <%= f.button :submit %>
-    <%= link_to_add_row('Add Task', f, :tasks, class: 'btn btn-primary') %>
+    <%= f.button :submit, 'Submit Flight Entry', class: "add_fields1 btn btn-warning" %>
+ <%= link_to_add_row('Add Drones', f, :tasks, class: 'btn btn-primary') %>
   </div>
 <% end %>

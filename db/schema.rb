@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306011531) do
+ActiveRecord::Schema.define(version: 20170730052722) do
 
   create_table "tasks", force: :cascade do |t|
     t.integer  "todo_list_id"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 20170306011531) do
     t.date     "due"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "dstatus"
+    t.string   "dnotes"
+    t.string   "drowid"
     t.index ["todo_list_id"], name: "index_tasks_on_todo_list_id"
   end
 
@@ -26,15 +29,16 @@ ActiveRecord::Schema.define(version: 20170306011531) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.date     "birthday"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "purpose"
+    t.string   "weather"
+    t.string   "mission"
+    t.string   "observer"
+    t.string   "operator"
+    t.date     "date"
+    t.string   "time"
+    t.text     "gnotes"
+    t.integer  "dronetotal"
+    t.integer  "dronegood"
   end
 
 end

@@ -1,9 +1,12 @@
-<tr>
-  <td>
-    <%= f.input_field :_destroy, as: :hidden %>
-    <%= link_to 'Delete', '#', class: 'remove_record' %>
-  </td>
+<tr  class="item-row">
+
   <td><%= f.input :name, label: false %></td>
-  <td><%= f.input :completed, label: false %></td>
-  <td><%= f.input :due, label: false, as: :string %></td>
+  <td><%= f.input :drowid, label: false %></td>
+  <td> <%= f.select :dstatus, Task::Status_List, {},  class: "form-control"%></td>
+  <td><%= f.input :dnotes, label: false %></td>
+    <td>
+      <%= f.input_field :_destroy, as: :hidden %>
+      <%= link_to 'Delete', '#', class: 'remove_record' %>
+    </td>
+
 </tr>
