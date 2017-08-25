@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170730052722) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "tasks", force: :cascade do |t|
     t.integer  "todo_list_id"
     t.string   "name"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170730052722) do
     t.string   "dstatus"
     t.string   "dnotes"
     t.string   "drowid"
-    t.index ["todo_list_id"], name: "index_tasks_on_todo_list_id"
+    t.index ["todo_list_id"], name: "index_tasks_on_todo_list_id", using: :btree
   end
 
   create_table "todo_lists", force: :cascade do |t|
@@ -41,4 +44,5 @@ ActiveRecord::Schema.define(version: 20170730052722) do
     t.integer  "dronegood"
   end
 
+  add_foreign_key "tasks", "todo_lists"
 end
