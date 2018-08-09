@@ -22,7 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# Arrowonics_FlightTest
-# FlightTest
-# FlightTestApplication
 # FlightTestApplication
